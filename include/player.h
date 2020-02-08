@@ -19,7 +19,7 @@ public:
     void                setIndex(unsigned short int index) { current_index = index; }
 
     void                drawFromDeck(Deck& deck);
-    void                receiveCard(Card** const card);
+    void                receiveCard(Card** card);
 
     std::vector<Card**> playCard() { return selected_cards; }
     void                selectCard() { selected_cards.push_back(hand[current_index]); }
