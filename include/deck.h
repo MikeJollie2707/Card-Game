@@ -6,7 +6,7 @@
 class Deck
 {
 private:
-    Card*     deck[52];
+    Card*     d_deck[52];
     short int card_num = 51;
 public:
     // Modifiers
@@ -17,7 +17,7 @@ public:
 
     // Getter of some sort
 
-    Card**    drawCard() { return &deck[card_num--]; }
+    Card**    drawCard() { return &d_deck[card_num--]; }
     void      putCard(Card** card) { card_num++; } // Optional, depends on which game.
 
     // Getter
