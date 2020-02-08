@@ -12,47 +12,34 @@ void Player::sortCard()
 {
     if (hand.size() == 0)
         return;
-
-    unsigned short int start = 0;
-    unsigned short int limit = hand.size() - 1;
-    unsigned short int mid = 0;
-
-    while (start < limit - 1)
+    else if (hand.size() == 1)
+        return;
+    else if (hand.size() == 2)
     {
-        mid = (limit - start) / 2 + start;
-        //std::cout << start << " " << limit << " " << mid << std::endl;
-        if (*(hand[hand.size() - 1]) > *(hand[mid]))
+        if ((*hand[0])->getValue() > (*hand[1])->getValue())
         {
-            start = mid;
+            Card** temp = hand[0];
+            hand[0] = hand[1];
+            hand[1] = temp;
         }
-        else if (*(hand[hand.size() - 1]) < *(hand[mid]))
+        return;
+    }
+    else
+    {
+        auto iter = hand.begin();
+        for (iter; iter != hand.end() - 1; iter++)
         {
-            limit = mid;
+            if ((**iter)->getValue() > (*hand.back())->getValue())
+            {
+                break;
+            }
+        }
+        if (iter != hand.end() - 1)
+        {
+            hand.insert(iter, hand.back());
+            hand.pop_back();
         }
     }
-
-    int pos = 0;
-    if (*(hand[hand.size() - 1]) > *(hand[start]) && *(hand[hand.size() - 1]) < *(hand[limit]))
-    {
-        pos = limit;
-        for (int i = hand.size() - 2; i > pos; i--) // Ignore the last card
-        {
-            hand[i] = hand[i - 1];
-        }
-        hand[pos] = hand[hand.size() - 1];
-        hand.pop_back();
-    }
-    else if (*(hand[hand.size() - 1]) < *(hand[start]))
-    {
-        pos = start;
-        for (int i = hand.size() - 2; i > pos; i--) // Ignore the last card
-        {
-            hand[i] = hand[i - 1];
-        }
-        hand[pos] = hand[hand.size() - 1];
-        hand.pop_back();
-    }
-    
 }
 
 void Player::drawFromDeck(Deck& deck)
