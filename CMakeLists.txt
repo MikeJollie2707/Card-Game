@@ -3,7 +3,7 @@ project(CardDeck    VERSION 1.0
                     DESCRIPTION "A library to make card games."
                     LANGUAGES CXX)
 
-set(TARGET maincard)
+set(TARGET test)
 set(EXECUTABLES 
     src/card.cpp
     src/deck.cpp

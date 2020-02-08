@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTempla
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/opt/cmake-3.16.3-Linux-x86_64/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/opt/cmake-3.16.3-Linux-x86_64/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named maincard
+# Target rules for targets named test
 
 # Build rule for target.
-maincard: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 maincard
-.PHONY : maincard
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-maincard/fast:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/build
-.PHONY : maincard/fast
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
 
 src/card.o: src/card.cpp.o
 
@@ -129,7 +129,7 @@ src/card.o: src/card.cpp.o
 
 # target to build an object file
 src/card.cpp.o:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/card.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/card.cpp.o
 .PHONY : src/card.cpp.o
 
 src/card.i: src/card.cpp.i
@@ -138,7 +138,7 @@ src/card.i: src/card.cpp.i
 
 # target to preprocess a source file
 src/card.cpp.i:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/card.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/card.cpp.i
 .PHONY : src/card.cpp.i
 
 src/card.s: src/card.cpp.s
@@ -147,7 +147,7 @@ src/card.s: src/card.cpp.s
 
 # target to generate assembly for a file
 src/card.cpp.s:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/card.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/card.cpp.s
 .PHONY : src/card.cpp.s
 
 src/deck.o: src/deck.cpp.o
@@ -156,7 +156,7 @@ src/deck.o: src/deck.cpp.o
 
 # target to build an object file
 src/deck.cpp.o:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/deck.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/deck.cpp.o
 .PHONY : src/deck.cpp.o
 
 src/deck.i: src/deck.cpp.i
@@ -165,7 +165,7 @@ src/deck.i: src/deck.cpp.i
 
 # target to preprocess a source file
 src/deck.cpp.i:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/deck.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/deck.cpp.i
 .PHONY : src/deck.cpp.i
 
 src/deck.s: src/deck.cpp.s
@@ -174,7 +174,7 @@ src/deck.s: src/deck.cpp.s
 
 # target to generate assembly for a file
 src/deck.cpp.s:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/deck.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/deck.cpp.s
 .PHONY : src/deck.cpp.s
 
 src/player.o: src/player.cpp.o
@@ -183,7 +183,7 @@ src/player.o: src/player.cpp.o
 
 # target to build an object file
 src/player.cpp.o:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/player.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/player.cpp.o
 .PHONY : src/player.cpp.o
 
 src/player.i: src/player.cpp.i
@@ -192,7 +192,7 @@ src/player.i: src/player.cpp.i
 
 # target to preprocess a source file
 src/player.cpp.i:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/player.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/player.cpp.i
 .PHONY : src/player.cpp.i
 
 src/player.s: src/player.cpp.s
@@ -201,7 +201,7 @@ src/player.s: src/player.cpp.s
 
 # target to generate assembly for a file
 src/player.cpp.s:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/player.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/player.cpp.s
 .PHONY : src/player.cpp.s
 
 src/test.o: src/test.cpp.o
@@ -210,7 +210,7 @@ src/test.o: src/test.cpp.o
 
 # target to build an object file
 src/test.cpp.o:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/test.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.o
 .PHONY : src/test.cpp.o
 
 src/test.i: src/test.cpp.i
@@ -219,7 +219,7 @@ src/test.i: src/test.cpp.i
 
 # target to preprocess a source file
 src/test.cpp.i:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/test.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.i
 .PHONY : src/test.cpp.i
 
 src/test.s: src/test.cpp.s
@@ -228,7 +228,7 @@ src/test.s: src/test.cpp.s
 
 # target to generate assembly for a file
 src/test.cpp.s:
-	$(MAKE) -f CMakeFiles/maincard.dir/build.make CMakeFiles/maincard.dir/src/test.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.s
 .PHONY : src/test.cpp.s
 
 # Help Target
@@ -237,9 +237,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... maincard"
+	@echo "... edit_cache"
+	@echo "... test"
 	@echo "... src/card.o"
 	@echo "... src/card.i"
 	@echo "... src/card.s"
