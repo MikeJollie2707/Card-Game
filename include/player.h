@@ -13,8 +13,10 @@ private:
 
     std::vector<Card**> selected_cards; // This is for playing multiple cards such as 3-4-5-6-7-...
     unsigned short int  current_index = 0; // This is for current observe card.
+
+    void                sortCard();
 public:
-    void                setIndex(unsigned short int index);
+    void                setIndex(unsigned short int index) { current_index = index; }
 
     void                drawFromDeck(Deck& deck);
     void                receiveCard(Card** const card);
