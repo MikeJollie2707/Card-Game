@@ -17,8 +17,12 @@ public:
 
     // Getter of some sort
 
-    Card**    drawCard() { return &deck[card_num--]; }
+    Card** const   drawCard() { return &deck[card_num--]; }
     void      putCard(Card** const card) { card_num++; } // Optional, depends on which game.
+
+    // Getter
+
+    short int numCard() { return card_num; }
 
     Deck(); // Call createDeck internally.
     ~Deck();
