@@ -17,8 +17,8 @@ public:
 
     // Getter of some sort
 
-    Card** const   drawCard() { return &deck[card_num--]; }
-    void      putCard(Card** const card) { card_num++; } // Optional, depends on which game.
+    Card**    drawCard() { return &deck[card_num--]; }
+    void      putCard(Card** card) { card_num++; } // Optional, depends on which game.
 
     // Getter
 

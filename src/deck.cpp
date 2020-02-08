@@ -9,15 +9,15 @@ Deck::Deck()
 void Deck::createDeck()
 {
     int counter = 0;
-    for (int suits = 1; suits <= 4; suits++)
-        for (int num = 1; num <= 13; num++)
+    for (int num = 1; num <= 13; num++)
+        for (int suits = 1; suits <= 4; suits++)
             deck[counter++] = new Card(num, suits);
 }
 Deck::~Deck()
 {
     int counter = 0;
-    for (int suits = 1; suits <= 4; suits++)
-        for (int num = 1; num <= 13; num++)
+    for (int num = 1; num <= 13; num++)
+        for (int suits = 1; suits <= 4; suits++)
             delete deck[counter++];
 }
 void Deck::shuffle()
@@ -43,8 +43,8 @@ void Deck::shuffle()
 void Deck::reset()
 {
     int counter = 0;
-    for (int suits = 1; suits <= 4; suits++)
-        for (int num = 1; num <= 13; num++)
+    for (int num = 1; num <= 13; num++)
+        for (int suits = 1; suits <= 4; suits++)
         {
             delete deck[counter];
             deck[counter++] = new Card(num, suits);
