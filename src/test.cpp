@@ -11,6 +11,7 @@ int main()
     for (int i = 0; i < times; i++)
     {
         Card** draw = deck.drawCard();
+        std::cout << "Draw card:" << std::endl;
         std::cout << (*draw)->getNumber() << " " << (*draw)->getSuit() << " " << (*draw)->getValue();
         std::cout << std::endl;
         player.receiveCard(draw);
