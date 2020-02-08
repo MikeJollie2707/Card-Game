@@ -20,25 +20,9 @@ string
 vector
 -
 
-/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/card.cpp
-card.h
-/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/card.h
-stdexcept
--
-
-/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.cpp
-deck.h
-/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.h
-cstdlib
--
-ctime
--
-
-/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.cpp
-player.h
-/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.h
-
 /home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/test.cpp
 player.h
 /home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.h
+iostream
+-
 
