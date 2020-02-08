@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/maincard.dir/src/card.cpp.o CMakeFiles/maincard.dir/src/deck.cpp.o CMakeFiles/maincard.dir/src/player.cpp.o CMakeFiles/maincard.dir/src/test.cpp.o  -o maincard 
