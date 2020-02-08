@@ -15,4 +15,5 @@ Card::Card(unsigned short int num, unsigned short int suit)
         this->suit = suit;
     
     value = ++counter;
+    if (++counter > 52) counter = 0;
 }
