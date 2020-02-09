@@ -48,6 +48,12 @@ public:
      * @param suit The suit of the card.
      */
     Card(unsigned short int num, unsigned short int suit);
+    /**
+     * @brief Construct an unidentified card.
+     *        Use for placeholder when declaring vectors.
+     * 
+     */
+    Card() {}
 };
 
 #endif
