@@ -2,6 +2,8 @@
 #define DDLIST_H
 
 #include <vector>
+#include <stdexcept>
+#include <iostream>
 
 template <typename T>
 struct Node
@@ -11,7 +13,19 @@ struct Node
     Node<T>* prev;
 
     Node() { next = nullptr; prev = nullptr; }
-    Node(T const& data) { this->data = data; next = nullptr; prev = nullptr; }
+    Node(T const& data) 
+    {
+        next = nullptr; 
+        prev = nullptr; 
+        std::cout << "OK\n";
+        this->data = data; 
+    }
+    friend void swap(Node<T>& first, Node<T>& second)
+    {
+        Node<T> copy = first;
+        first = second;
+        second = copy;
+    }
 };
 
 template <typename T>
@@ -40,7 +54,22 @@ public:
 
     void push_back(T const& data)
     {
-        Node<T>* element = new Node<T>(data);
+        Node<T>* element = nullptr;
+        try
+        {
+            element = new Node<T>(data);
+        }
+        catch(const std::bad_alloc& ba)
+        {
+            std::cout << "Oh noes\n";
+            //std::cerr << ba.what() << '\n';
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << e.what() << std::endl;
+            std::cout << "RIP\n";
+        }
+        std::cout << "Cool\n";
         if (len != 0)
         {
             tail->next = element;
@@ -54,7 +83,7 @@ public:
         }
         len++;
     }
-    void push_back(Node<T>* element)
+    /*void push_back(Node<T>* element)
     {
         if (len != 0)
         {
@@ -68,7 +97,7 @@ public:
             tail = element;
         }
         len++;
-    }
+    }*/
     void push_front(T const& data)
     {
         Node<T>* element = new Node<T>(data);
@@ -129,6 +158,7 @@ public:
             pos->prev->next = pos->next;
             pos->next = nullptr;
             pos->prev = nullptr;
+            len--;
             return element;
         }
     }
@@ -141,9 +171,10 @@ public:
             delete head;
             head = mobile;
         }
+        len = 0;
         delete mobile;
     }
-    Node<T>* operator[](int const& index)
+    Node<T>& operator[](int const& index)
     {
         iter = head;
         int count = 0;
@@ -152,7 +183,7 @@ public:
             iter = iter->next;
             count++;
         }
-        return iter;
+        return *iter;
     }
 };
 
