@@ -4,18 +4,6 @@
 #include "card.h"
 #include "list.h"
 
-/*
-Brief explanation about Deck.
-The internal deck is Card** because first it's a dynamic array (so you can dispose the deck easily)
-Each element in d_deck is also a pointer to a Card (again, so you can dispose the card easily)
-
-You can however, just use a Card* and each elements will be an instance, which is less crap to deal with.
-But because the strict nature of Card (which is read-only), you can't really init a Card* d_deck.
-
-card_num refers to the top card of the deck. If someone draw the card, it'll return the Card** at that position,
-and then decrease card_num.
-*/
-
 class Deck
 {
 private:
