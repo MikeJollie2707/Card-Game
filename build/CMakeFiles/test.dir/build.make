@@ -60,54 +60,54 @@ include CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/src/card.cpp.o: CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/src/card.cpp.o: ../src/card.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test.dir/src/card.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/src/card.cpp.o -c "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/card.cpp"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/src/card.cpp.o -c "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/card.cpp"
 
 CMakeFiles/test.dir/src/card.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/src/card.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/card.cpp" > CMakeFiles/test.dir/src/card.cpp.i
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/card.cpp" > CMakeFiles/test.dir/src/card.cpp.i
 
 CMakeFiles/test.dir/src/card.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/src/card.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/card.cpp" -o CMakeFiles/test.dir/src/card.cpp.s
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/card.cpp" -o CMakeFiles/test.dir/src/card.cpp.s
 
 CMakeFiles/test.dir/src/deck.cpp.o: CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/src/deck.cpp.o: ../src/deck.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/test.dir/src/deck.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/src/deck.cpp.o -c "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.cpp"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/src/deck.cpp.o -c "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.cpp"
 
 CMakeFiles/test.dir/src/deck.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/src/deck.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.cpp" > CMakeFiles/test.dir/src/deck.cpp.i
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.cpp" > CMakeFiles/test.dir/src/deck.cpp.i
 
 CMakeFiles/test.dir/src/deck.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/src/deck.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.cpp" -o CMakeFiles/test.dir/src/deck.cpp.s
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.cpp" -o CMakeFiles/test.dir/src/deck.cpp.s
 
 CMakeFiles/test.dir/src/player.cpp.o: CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/src/player.cpp.o: ../src/player.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/test.dir/src/player.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/src/player.cpp.o -c "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.cpp"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/src/player.cpp.o -c "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.cpp"
 
 CMakeFiles/test.dir/src/player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/src/player.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.cpp" > CMakeFiles/test.dir/src/player.cpp.i
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.cpp" > CMakeFiles/test.dir/src/player.cpp.i
 
 CMakeFiles/test.dir/src/player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/src/player.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.cpp" -o CMakeFiles/test.dir/src/player.cpp.s
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.cpp" -o CMakeFiles/test.dir/src/player.cpp.s
 
 CMakeFiles/test.dir/src/test.cpp.o: CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/src/test.cpp.o: ../src/test.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test.dir/src/test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/src/test.cpp.o -c "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/test.cpp"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/src/test.cpp.o -c "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/test.cpp"
 
 CMakeFiles/test.dir/src/test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/src/test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/test.cpp" > CMakeFiles/test.dir/src/test.cpp.i
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/test.cpp" > CMakeFiles/test.dir/src/test.cpp.i
 
 CMakeFiles/test.dir/src/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/src/test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/test.cpp" -o CMakeFiles/test.dir/src/test.cpp.s
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/test.cpp" -o CMakeFiles/test.dir/src/test.cpp.s
 
 # Object files for target test
 test_OBJECTS = \

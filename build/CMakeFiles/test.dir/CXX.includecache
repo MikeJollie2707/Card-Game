@@ -37,6 +37,8 @@ cstdlib
 -
 ctime
 -
+iostream
+-
 
 /home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.cpp
 player.h

@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/test.dir/src/card.cpp.o CMakeFiles/test.dir/src/deck.cpp.o CMakeFiles/test.dir/src/player.cpp.o CMakeFiles/test.dir/src/test.cpp.o  -o test 
+/usr/bin/g++-7     CMakeFiles/test.dir/src/card.cpp.o CMakeFiles/test.dir/src/deck.cpp.o CMakeFiles/test.dir/src/player.cpp.o CMakeFiles/test.dir/src/test.cpp.o  -o test 
