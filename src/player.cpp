@@ -1,5 +1,4 @@
 #include "player.h"
-#include <iostream> // Debug
 
 Player::Player(std::string playerName) : name(playerName)
 {

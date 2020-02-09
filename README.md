@@ -7,6 +7,7 @@ This is a library (maybe) that provide you to create card games. I'm aiming for 
 ## How to use
 
 - Inherit `Card`, then override the constructor, the operators overloading.
+- Inherit `Game`, then override `gameRule`.
 
 ## Contribute
 
