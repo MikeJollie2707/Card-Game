@@ -7,14 +7,17 @@ CMakeFiles/test.dir/src/card.cpp.o
 CMakeFiles/test.dir/src/deck.cpp.o
  ../include/card.h
  ../include/deck.h
+ ../include/list.h
  /home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.cpp
 CMakeFiles/test.dir/src/player.cpp.o
  ../include/card.h
  ../include/deck.h
+ ../include/list.h
  ../include/player.h
  /home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.cpp
 CMakeFiles/test.dir/src/test.cpp.o
  ../include/card.h
  ../include/deck.h
+ ../include/list.h
  ../include/player.h
  /home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/test.cpp

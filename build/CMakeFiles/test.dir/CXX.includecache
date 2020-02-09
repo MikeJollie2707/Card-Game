@@ -11,6 +11,16 @@
 ../include/deck.h
 card.h
 ../include/card.h
+list.h
+../include/list.h
+
+../include/list.h
+vector
+-
+stdexcept
+-
+iostream
+-
 
 ../include/player.h
 deck.h
