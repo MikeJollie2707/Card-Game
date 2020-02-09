@@ -2,6 +2,7 @@
 #define DECK_H
 
 #include "card.h"
+#include "list.h"
 
 /*
 Brief explanation about Deck.
@@ -18,22 +19,10 @@ and then decrease card_num.
 class Deck
 {
 private:
-    /**
-     * @brief Internal deck.
-     * 
-     */
-    Card*    d_deck[52];
-    /**
-     * @brief Maximum number of cards.
-     *        Adjust this depends on your game.
-     * 
-     */
-    short int total_card = 52;
-    /**
-     * @brief Unsure...
-     * 
-     */
-    short int card_num = 51;
+    List<Card> deck;
+    Card* d_deck[52];
+    unsigned short int card_num = 51;
+    unsigned short int total_card = 52;
 public:
     // Modifiers
 
@@ -44,6 +33,7 @@ public:
     // Getter of some sort
 
     Card**    drawCard() { return &d_deck[card_num--]; }
+    Node<Card>* drawtCard() { return deck.pop_back(); }
     void      putCard(Card** card) { card_num++; } // Optional, depends on which game.
 
     // Getter
