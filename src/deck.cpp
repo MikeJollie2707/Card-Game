@@ -1,6 +1,7 @@
 #include "deck.h"
 #include <cstdlib> // srand
 #include <ctime>   // time
+#include <iostream>
 
 Deck::Deck()
 {
@@ -14,32 +15,24 @@ void Deck::createDeck()
 }
 Deck::~Deck()
 {
-    /*int counter = 0;
-    for (int num = 1; num <= 13; num++)
-        for (int suits = 1; suits <= 4; suits++)
-            delete d_deck[counter++];*/
 }
 void Deck::shuffle()
 {
     srand(time(NULL));
-
-    /*int start = 0;
-    int mobile = card_num - 1;
-
+    int start = 0;
+    int mobile = 0;
+    //deck.print();
     while (start < 52)
     {
         do
             mobile = rand() % 52;
         while (mobile == start);
 
-        Card* pCard = d_deck[mobile];
-        d_deck[mobile] = d_deck[start];
-        d_deck[start] = pCard;
-
+        std::cout << "Swap at " << start << " " << mobile << std::endl;
+        deck.swap(deck[start], deck[mobile]);
         start++;
-    }*/
-    Node<Card>* dfront = deck.front();
-    Node<Card>* dback = deck.back();
+    }
+    //deck.print();
 }
 void Deck::reset()
 {
