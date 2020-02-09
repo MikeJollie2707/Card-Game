@@ -6,8 +6,7 @@ Player::Player(std::string playerName) : name(playerName)
 }
 Player::~Player()
 {
-    thand.iter = thand.front();
-    
+    //thand.print();
 }
 
 void Player::sortCard()
@@ -27,22 +26,13 @@ void Player::sortCard()
         // thand[0] is Node<Node<Card>*>*, thand[0]->data is Node<Card>*, thand[0]->data->data is Card.
         if (thand[0].data->getValue() > thand[1].data->getValue()) 
         {
-            /*Node<Card*> temp = thand[0];
-            std::cout << "First card value: " << std::endl;
-            std::cout << temp.data->getValue() << std::endl << std::endl;
-            std::cout << thand[1].data->getValue() << std::endl << std::endl;
-            thand[0] = thand[1];
-            std::cout << thand[0].data->getValue() << std::endl << std::endl;
-            std::cout << thand[1].data->getValue() << std::endl << std::endl;
-            std::cout << "Cause seg fault?" << std::endl;
-            thand[1] = temp;*/
-            swap(thand[0], thand[1]);
+            thand.swap(*thand.front(), *(thand.front()->next));
         }
         return;
     }
     else
     {
-        auto iter = hand.begin();
+        /*auto iter = hand.begin();
         for (iter; iter != hand.end() - 1; iter++)
         {
             if ((**iter)->getValue() > (*hand.back())->getValue())
@@ -54,7 +44,15 @@ void Player::sortCard()
         {
             hand.insert(iter, hand.back());
             hand.pop_back();
+        }*/
+        thand.iter = thand.front();
+        for (thand.iter; thand.iter != thand.back(); thand.iter = thand.iter->next)
+        {
+            if (thand.iter->data->getValue() > thand.back()->data->getValue())
+                break;
         }
+        thand.moveto(thand.back(), thand.iter);
+        thand.iter = thand.front();
     }
 }
 
@@ -72,6 +70,13 @@ void Player::receiveCard(Card** card)
 
 void Player::treceiveCard(Node<Card>* card)
 {
+    //std::cout << "Previous status: " << std::endl;
+    //thand.print();
     thand.push_back(&(card->data));
+    //std::cout << "Current status: " << std::endl;
+    //thand.print();
     sortCard();
+    //std::cout << "Sort status: " << std::endl;
+    //thand.print();
+    //std::cout << std::endl;
 }
