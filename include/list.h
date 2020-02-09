@@ -17,14 +17,7 @@ struct Node
     {
         next = nullptr; 
         prev = nullptr; 
-        std::cout << "OK\n";
         this->data = data; 
-    }
-    friend void swap(Node<T>& first, Node<T>& second)
-    {
-        Node<T> copy = first;
-        first = second;
-        second = copy;
     }
 };
 
@@ -54,23 +47,8 @@ public:
 
     void push_back(T const& data)
     {
-        Node<T>* element = nullptr;
-        try
-        {
-            element = new Node<T>(data);
-        }
-        catch(const std::bad_alloc& ba)
-        {
-            std::cout << "Oh noes\n";
-            //std::cerr << ba.what() << '\n';
-        }
-        catch(const std::exception& e)
-        {
-            std::cout << e.what() << std::endl;
-            std::cout << "RIP\n";
-        }
-        std::cout << "Cool\n";
-        if (len != 0)
+        Node<T>* element = new Node<T>(data);
+        if (len > 0)
         {
             tail->next = element;
             element->prev = tail;
@@ -83,9 +61,9 @@ public:
         }
         len++;
     }
-    /*void push_back(Node<T>* element)
+    void push_back(Node<T>* element)
     {
-        if (len != 0)
+        if (len > 0)
         {
             tail->next = element;
             element->prev = tail;
@@ -97,7 +75,7 @@ public:
             tail = element;
         }
         len++;
-    }*/
+    }
     void push_front(T const& data)
     {
         Node<T>* element = new Node<T>(data);
@@ -110,27 +88,69 @@ public:
         {
             head->prev = element;
             element->next = head;
+            head = element;
         }
         len++;
     }
+    void push_front(Node<T>* element)
+    {
+        if (len == 0)
+        {
+            head = element;
+            tail = element;
+        }
+        else
+        {
+            head->prev = element;
+            element->next = head;
+            head = element;
+        }
+        len++;
+    }
+    /**
+     * @brief Remove the last element, return the pointer to it.
+     * 
+     * @return Node<T>* The pointer to the removed Node. nullptr if the size is 0.
+     */
     Node<T>* pop_back()
     {
         Node<T>* element = tail;
-        tail->prev->next = nullptr;
-        tail = tail->prev;
-        element->prev = nullptr;
+        if (len > 1)
+        {
+            tail->prev->next = nullptr;
+            tail = tail->prev;
+            element->prev = nullptr;
+        }
+        else if (len == 0) element = nullptr;
+
         len--;
         return element;
     }
+    /**
+     * @brief Remove the first element, return the pointer to it.
+     * 
+     * @return Node<T>* The pointer to the removed Node. nullptr if the size is 0.
+     */
     Node<T>* pop_front()
     {
         Node<T>* element = head;
-        head->next->prev = nullptr;
-        head = head->next;
-        element->next = nullptr;
+        if (len > 1)
+        {
+            head->next->prev = nullptr;
+            head = head->next;
+            element->next = nullptr;
+        }
+        else if (len == 0) element = nullptr;
+
         len--;
         return element;
     }
+    /**
+     * @brief Construct and insert an element before pos.
+     * 
+     * @param pos Node<T>* The pointer to an element to insert before. nullptr if insert at the back.
+     * @param data const T& The data to construct.
+     */
     void insert(Node<T>* pos, T const& data)
     {
         if (pos == nullptr) push_back(data);
@@ -143,6 +163,26 @@ public:
             pos->prev = element;
             element->next = pos;
             len++;
+        }
+    }
+    /**
+     * @brief Insert an element before pos.
+     * 
+     * @param pos Node<T>* The pointer to an element to insert before. nullptr if insert at the back.
+     * @param element Node<T>* The pointer to the element to insert.
+     */
+    void insert(Node<T>* pos, Node<T>* element)
+    {
+        if (pos == head)
+            push_front(element);
+        else if (pos == nullptr) 
+            push_back(element);
+        else
+        {
+            pos->prev->next = element;
+            element->prev = pos->prev;
+            pos->prev = element;
+            element->next = pos;
         }
     }
     Node<T>* remove(Node<T>* pos)
@@ -162,17 +202,81 @@ public:
             return element;
         }
     }
+    /**
+     * @brief Move an element to a destination.
+     * 
+     * @param element Node<T>* Pointer to the element you want to insert.
+     * @param pos Node<T>* Pointer to the location you want to insert.
+     * 
+     * @exception If element is pos->prev or size < 2, the method do nothing.
+     * @exception If element is not belong to the list, the behavior is undefined.
+     * @exception If element is nullptr, the behavior is undefined.
+     */
+    void moveto(Node<T>* element, Node<T>* pos)
+    {
+        if (element == pos->prev || len < 2) return;
+        /*if (element->next == nullptr && element->prev == nullptr)
+        {
+            std::cout << "Use 'insert', 'push_back' or 'push_front' instead." << std::endl;
+            return;
+        }*/
+        if (pos == head)
+        {
+            element->prev->next = element->next;
+            if (element != tail)
+                element->next->prev = element->prev;
+            else
+                tail = element->prev;
+            element->prev = nullptr;
+            element->next = head;
+            head->prev = element;
+            head = element;
+        }
+        else if (pos == nullptr)
+        {
+            element->next->prev = element->prev;
+            if (element != head)
+                element->prev->next = element->next;
+            else
+                head = element->next;
+            element->next = nullptr;
+            element->prev = tail;
+            tail->next = element;
+            tail = element;
+        }
+        else
+        {
+            if (element == head)
+            {
+                element->next->prev = nullptr;
+                head = element->next;
+            }
+            else if (element == tail)
+            {
+                element->prev->next = nullptr;
+                tail = element->prev;
+            }
+            element->next = pos;
+            element->prev = pos->prev;
+            pos->prev->next = element;
+            pos->prev = element;
+        }
+        
+    }
     void clear()
     {
-        Node<T>* mobile = head;
-        while (mobile->next != nullptr)
+        iter = head;
+        int counter = 0;
+        if (len == 0) return;
+        while (iter->next != nullptr)
         {
-            mobile = head->next;
+            iter = head->next;
             delete head;
-            head = mobile;
+            //std::cout << counter++ << std::endl;
+            head = iter;
         }
         len = 0;
-        delete mobile;
+        delete iter;
     }
     Node<T>& operator[](int const& index)
     {
@@ -184,6 +288,131 @@ public:
             count++;
         }
         return *iter;
+    }
+    void swap(Node<T>& first, Node<T>& second)
+    {
+        if (len <= 1) return;
+        if (len == 2)
+        {
+            iter = head;
+            head->prev = tail;    
+            head->next = nullptr;
+        
+            tail->prev = nullptr;
+            tail->next = head;
+
+            head = tail;
+            tail = iter;
+            iter = head;
+        }
+        else if (len > 2)
+        {
+            /*std::cout << "Pair: " << std::endl;
+            std::cout << "My address: " << &first << std::endl;
+            std::cout << first.prev << "|" << first.next << std::endl;
+            std::cout << "His address: " << &second << std::endl;
+            std::cout << second.prev << "|" << second.next << std::endl;*/
+            /*std::cout << "After swap: " << std::endl;
+            std::cout << "My address: " << &first << std::endl;
+            std::cout << first.prev << "|" << first.next << std::endl;
+            std::cout << "His address: " << &second << std::endl;
+            std::cout << second.prev << "|" << second.next << std::endl;*/
+            if (&first == head || &second == head)
+            {
+                if (&first == head && &second == tail)
+                {
+                    first.next->prev = &second;
+                    second.prev->next = &first;
+
+                    first.prev = second.prev;
+                    second.next = first.next;
+
+                    head = &second;
+                    tail = &first;
+                }
+                else if (&first == head && &second != tail)
+                {
+                    if (first.next != &second && first.prev != &second)
+                    {
+                        first.next->prev = &second;
+                        second.prev->next = &first;
+
+                        second.next->prev = &first;
+
+                        Node<T>* temp = first.next;
+                        first.next = second.next;
+                        second.next = temp;
+
+                        temp = first.prev;
+                        first.prev = second.prev;
+                        second.prev = temp;
+
+                        head = &second;
+                    }
+                }
+            }
+            else if (&first == tail || &second == tail)
+            {
+
+            }
+            else if (first.next == &second || first.prev == &second)
+            {
+
+            }
+            else
+            {
+                //std::cout << "Pair: " << std::endl;
+                //std::cout << "My address: " << &first << std::endl;
+                //std::cout << first.prev << "|" << first.next << std::endl;
+                //std::cout << "His address: " << &second << std::endl;
+                //std::cout << second.prev << "|" << second.next << std::endl;
+                first.prev->next = &second;
+                first.next->prev = &second;
+                second.prev->next = &first;
+                second.next->prev = &first;
+                
+                Node<T>* temp = first.next;
+                first.next = second.next;
+                second.next = temp;
+
+                temp = first.prev;
+                first.prev = second.prev;
+                second.prev = temp;
+
+                //std::cout << "After swap: " << std::endl;
+                //std::cout << "My address: " << &first << std::endl;
+                //std::cout << first.prev << "|" << first.next << std::endl;
+                //std::cout << "His address: " << &second << std::endl;
+                //std::cout << second.prev << "|" << second.next << std::endl;
+                /*T temp = first.data;
+                first.data = second.data;
+                second.data = temp;*/
+            }
+        }
+        
+    }
+    void print()
+    {
+        if (len == 0) return;
+        iter = head;
+        std::cout << "Size: " << len << std::endl;
+        while (iter->next != nullptr)
+        {
+            std::cout << "My address: " << iter << std::endl;
+            std::cout << "|" << iter->prev << "|";
+            std::cout << "|" << &(iter->data) << "|";
+            std::cout << "|" << iter->next << "|";
+            std::cout << std::endl;
+            iter = iter->next;
+        }
+        std::cout << "My address: " << iter << std::endl;
+        std::cout << "|" << iter->prev << "|";
+        std::cout << "|" << &(iter->data) << "|";
+        std::cout << "|" << iter->next << "|";
+        std::cout << std::endl;
+        std::cout << "Current head: " << head << std::endl;
+        std::cout << "Current tail: " << tail << std::endl;
+        iter = head;
     }
 };
 
