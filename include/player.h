@@ -26,7 +26,11 @@ public:
     std::vector<Card**> playCard() { return selected_cards; }
     List<Card*> tplayCard() { return tselected_cards; }
     void                selectCard() { selected_cards.push_back(hand[current_index]); }
-    void tselectCard() { tselected_cards.push_back(thand[current_index].data); }
+    void tselectCard() 
+    {
+        tselected_cards.push_back(thand.pop_front()); 
+    }
+    void print() { thand.print(); }
 
     Player(std::string name = "Player");
     ~Player();
