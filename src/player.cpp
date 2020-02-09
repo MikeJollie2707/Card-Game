@@ -15,11 +15,17 @@ void Player::sortCard()
         return;
     else if (hand.size() == 2)
     {
-        if ((*hand[0])->getValue() > (*hand[1])->getValue())
+        /*if ((*hand[0])->getValue() > (*hand[1])->getValue())
         {
             Card** temp = hand[0];
             hand[0] = hand[1];
             hand[1] = temp;
+        }*/
+        // thand[0] is Node<Node<Card>*>*, thand[0]->data is Node<Card>*, thand[0]->data->data is Card.
+        if (thand[0]->data->data.getValue() > thand[1]->data->data.getValue()) 
+        {
+            Node<Node<Card>*>* temp = thand[0];
+            thand[0] = thand[1];
         }
         return;
     }
@@ -43,11 +49,17 @@ void Player::sortCard()
 
 void Player::drawFromDeck(Deck& deck)
 {
-    receiveCard(deck.drawCard());
+    //receiveCard(deck.drawCard());
+    treceiveCard(deck.drawtCard());
 }
 
 void Player::receiveCard(Card** card)
 {
     hand.push_back(card);
     sortCard();
+}
+
+void Player::treceiveCard(Node<Card>* card)
+{
+    thand.push_back(card);
 }
