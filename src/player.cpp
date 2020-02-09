@@ -1,19 +1,22 @@
 #include "player.h"
+#include <iostream>
 
 Player::Player(std::string playerName) : name(playerName)
 {
 }
 Player::~Player()
 {
+    thand.iter = thand.front();
+    
 }
 
 void Player::sortCard()
 {
-    if (hand.size() == 0)
+    if (thand.size() == 0)
         return;
-    else if (hand.size() == 1)
+    else if (thand.size() == 1)
         return;
-    else if (hand.size() == 2)
+    else if (thand.size() == 2)
     {
         /*if ((*hand[0])->getValue() > (*hand[1])->getValue())
         {
@@ -22,10 +25,18 @@ void Player::sortCard()
             hand[1] = temp;
         }*/
         // thand[0] is Node<Node<Card>*>*, thand[0]->data is Node<Card>*, thand[0]->data->data is Card.
-        if (thand[0]->data->data.getValue() > thand[1]->data->data.getValue()) 
+        if (thand[0].data->getValue() > thand[1].data->getValue()) 
         {
-            Node<Node<Card>*>* temp = thand[0];
+            /*Node<Card*> temp = thand[0];
+            std::cout << "First card value: " << std::endl;
+            std::cout << temp.data->getValue() << std::endl << std::endl;
+            std::cout << thand[1].data->getValue() << std::endl << std::endl;
             thand[0] = thand[1];
+            std::cout << thand[0].data->getValue() << std::endl << std::endl;
+            std::cout << thand[1].data->getValue() << std::endl << std::endl;
+            std::cout << "Cause seg fault?" << std::endl;
+            thand[1] = temp;*/
+            swap(thand[0], thand[1]);
         }
         return;
     }
@@ -61,5 +72,6 @@ void Player::receiveCard(Card** card)
 
 void Player::treceiveCard(Node<Card>* card)
 {
-    thand.push_back(card);
+    thand.push_back(&(card->data));
+    sortCard();
 }
