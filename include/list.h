@@ -317,7 +317,7 @@ public:
             std::cout << first.prev << "|" << first.next << std::endl;
             std::cout << "His address: " << &second << std::endl;
             std::cout << second.prev << "|" << second.next << std::endl;*/
-            if (&first == head || &second == head)
+            /*if (&first == head || &second == head)
             {
                 if (&first == head && &second == tail)
                 {
@@ -386,8 +386,54 @@ public:
                 //std::cout << second.prev << "|" << second.next << std::endl;
                 /*T temp = first.data;
                 first.data = second.data;
-                second.data = temp;*/
+                second.data = temp;
+            }*/
+
+            // I'm assuming first is before second.
+
+            if (head == &first && tail == &second)
+            {
+                // Set the previous nodes point to correct node
+                first.next->prev = &second;
+                second.prev->next = &first;
+                // Set the nodes point to correct nodes
+                first.prev = second.prev;
+                second.next = first.next;
+                // Set the first node + second node point to null
+                first.next = nullptr;
+                second.prev = nullptr;
+                // Swap the head and tail pointer
+                Node<T>* temp = head;
+                head = tail;
+                tail = temp;
             }
+            else if (head == &first && tail != &second)
+            {
+                // Point the prev to the correct prev
+                first.prev = second.prev;
+                // Point the next to the corrent node
+                first.next->prev = &second;
+                // Point the next and prev to the correct node
+                second.next->prev = &first;
+                second.prev->next = &first;
+                // Switch the next pointers
+                Node<T>* temp = first.next;
+                first.next = second.next;
+                second.next = temp;
+                // Set the second as head
+                second.prev = nullptr;
+                head = &second;
+            }
+            else if (first.next = &second && tail != &second)
+            {
+                // Set the next and prev to correct next prev node
+                first.next = second.next;
+                second.prev = first.prev;
+                // Set the prev and next to correct node
+                first.prev = &second;
+                second.next = &first;
+            }
+
         }
         
     }
