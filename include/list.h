@@ -424,6 +424,23 @@ public:
                 second.prev = nullptr;
                 head = &second;
             }
+            else if (tail == &first && head != &second)
+            {
+                // Do the opposite as above
+                first.next = second.next;
+
+                first.prev->next = &second;
+
+                second.prev->next = &first;
+                second.next->prev = &first;
+
+                Node<T>* temp = first.prev;
+                first.prev = second.prev;
+                second.prev = temp;
+
+                second.next = nullptr;
+                tail = &second;
+            }
             else if (first.next = &second && tail != &second)
             {
                 // Set the next and prev to correct next prev node
@@ -432,6 +449,22 @@ public:
                 // Set the prev and next to correct node
                 first.prev = &second;
                 second.next = &first;
+            }
+            else if (head != &first && tail != &second)
+            {
+                first.next->prev = &second;
+                first.prev->next = &second;
+
+                second.next->prev = &first;
+                second.prev->next = &first;
+
+                Node<T>* temp = first.next;
+                first.next = second.next;
+                second.next = temp;
+
+                temp = first.prev;
+                first.prev = second.prev;
+                second.prev = temp;
             }
 
         }
