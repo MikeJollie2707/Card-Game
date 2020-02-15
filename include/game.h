@@ -13,7 +13,9 @@ class Game
 
     virtual void gameRule() = 0;
 
-    Game(unsigned short int player_num = 4);
+    // After inherit Card, pass the card object to the pointer for the deck to play with that deck.
+    // Should change Deck to Deck<T>
+    Game(Card* card_type, unsigned short int player_num = 4);
     ~Game();
 };
 
