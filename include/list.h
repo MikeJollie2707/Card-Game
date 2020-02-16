@@ -402,10 +402,9 @@ public:
                 // Set the first node + second node point to null
                 first.next = nullptr;
                 second.prev = nullptr;
-                // Swap the head and tail pointer
-                Node<T>* temp = head;
-                head = tail;
-                tail = temp;
+                
+                head = &second;
+                tail = &first;
             }
             else if (head == &first && tail != &second)
             {
