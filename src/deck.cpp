@@ -19,7 +19,7 @@ Deck::~Deck()
 void Deck::shuffle()
 {
     srand(time(NULL));
-    int start = 0;
+    /*int start = 0;
     int mobile = 0;
     //deck.print();
     while (start < 52)
@@ -31,8 +31,40 @@ void Deck::shuffle()
         std::cout << "Swap at " << start << " " << mobile << std::endl;
         deck.swap(deck[start], deck[mobile]);
         start++;
-    }
+    }*/
     //deck.print();
+
+    
+    int count = 0;
+    Node<Card>* start = deck.front();
+    Node<Card>* end = deck.back();
+    while (count < deck.size() && start != nullptr && end != nullptr)
+    {
+        int decision = rand() % 2;
+        if (decision)
+            deck.swap(*start, *end);
+        
+        start = start->next;
+        end = end->prev;
+        count++;
+    }
+
+    count = 0;
+    start = deck.front();
+    end = deck.front();
+    for (int count2 = 0; count2 < deck.size(); count2++)
+        end = end->next;
+    
+    while (end != nullptr)
+    {
+        int decision = rand() % 3;
+        if (decision)
+            deck.swap(*start, *end);
+        
+        start = start->next;
+        end = end->next;
+        count++;
+    }
 }
 void Deck::reset()
 {
