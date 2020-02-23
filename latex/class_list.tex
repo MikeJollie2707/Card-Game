@@ -1,0 +1,289 @@
+\hypertarget{class_list}{}\section{List$<$ T $>$ Class Template Reference}
+\label{class_list}\index{List$<$ T $>$@{List$<$ T $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$ \hyperlink{class_list_a0ea52d2f31cba662a5121ba724a1afc6}{front} ()
+\begin{DoxyCompactList}\small\item\em Return pointer to the first element. \end{DoxyCompactList}\item 
+\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$ \hyperlink{class_list_a0e0849a1ca10791cb2788ec41af14c26}{back} ()
+\begin{DoxyCompactList}\small\item\em Return pointer to the last element. \end{DoxyCompactList}\item 
+bool \hyperlink{class_list_a3737ca60365287ce663393d8c07d1a41}{empty} ()
+\begin{DoxyCompactList}\small\item\em A check if the container is empty. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_list_ad908ab5cf19370fcdf61cf1927e5e8f5}{size} ()
+\begin{DoxyCompactList}\small\item\em Return the size of the list. \end{DoxyCompactList}\item 
+void \hyperlink{class_list_afc370c46b52217d24992076d66e78c2e}{push\+\_\+back} (T const \&data)
+\begin{DoxyCompactList}\small\item\em Construct and insert the element at the back. \end{DoxyCompactList}\item 
+void \hyperlink{class_list_a36d7022ab9a7fadeb45a5933e64e8bd8}{push\+\_\+back} (\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$element)
+\begin{DoxyCompactList}\small\item\em Insert the element at the back. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_list_ab3a121baf35c7fa3f83717ede3a46e1b}\label{class_list_ab3a121baf35c7fa3f83717ede3a46e1b}} 
+void {\bfseries push\+\_\+front} (T const \&data)
+\item 
+void \hyperlink{class_list_aeb009afd4f0f626603455d5ee9e3dfc3}{push\+\_\+front} (\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$element)
+\begin{DoxyCompactList}\small\item\em Insert the element at the front. \end{DoxyCompactList}\item 
+\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$ \hyperlink{class_list_aca64c15e326dd7515499310bc9f2efb0}{pop\+\_\+back} ()
+\begin{DoxyCompactList}\small\item\em Remove the last element, return the pointer to it. \end{DoxyCompactList}\item 
+\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$ \hyperlink{class_list_a3188f038a0b9c0a578bccdf7348f42b5}{pop\+\_\+front} ()
+\begin{DoxyCompactList}\small\item\em Remove the first element, return the pointer to it. \end{DoxyCompactList}\item 
+void \hyperlink{class_list_af583e46c2dad89c3f29be38a52dd27bc}{insert} (\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$pos, T const \&data)
+\begin{DoxyCompactList}\small\item\em Construct and insert an element before pos. \end{DoxyCompactList}\item 
+void \hyperlink{class_list_ac7fcefb285d5b4991be548342f9b86e9}{insert} (\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$pos, \hyperlink{struct_node}{Node}$<$ T $>$ $\ast$element)
+\begin{DoxyCompactList}\small\item\em Insert an element before pos. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_list_a835180f96db12ee4793c77562fbf02be}\label{class_list_a835180f96db12ee4793c77562fbf02be}} 
+\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$ {\bfseries remove} (\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$pos)
+\item 
+void \hyperlink{class_list_a5bfb723e873c6af1e03b085a24ad62f4}{moveto} (\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$element, \hyperlink{struct_node}{Node}$<$ T $>$ $\ast$pos)
+\begin{DoxyCompactList}\small\item\em Move an element to a destination. \hyperlink{struct_node}{Node} that it insert B\+E\+F\+O\+RE the pos. \end{DoxyCompactList}\item 
+void \hyperlink{class_list_ae296516a252e11963dbf963727ce429a}{clear} ()
+\begin{DoxyCompactList}\small\item\em Clear every elements in the list. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_list_a8112bcf1ec3cbbc681dd54073d299c03}\label{class_list_a8112bcf1ec3cbbc681dd54073d299c03}} 
+\hyperlink{struct_node}{Node}$<$ T $>$ \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int const \&index)
+\item 
+\mbox{\Hypertarget{class_list_a8fb146e3a7ae88e7634065e57464c484}\label{class_list_a8fb146e3a7ae88e7634065e57464c484}} 
+void {\bfseries swap2} (\hyperlink{struct_node}{Node}$<$ T $>$ \&first, \hyperlink{struct_node}{Node}$<$ T $>$ \&second)
+\item 
+\mbox{\Hypertarget{class_list_a05c720c443e157c341c810decc9d9e01}\label{class_list_a05c720c443e157c341c810decc9d9e01}} 
+void {\bfseries swap} (\hyperlink{struct_node}{Node}$<$ T $>$ \&first, \hyperlink{struct_node}{Node}$<$ T $>$ \&second)
+\item 
+\mbox{\Hypertarget{class_list_a67760ff5954e207fc9aa8d537675b8a0}\label{class_list_a67760ff5954e207fc9aa8d537675b8a0}} 
+void {\bfseries print} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$ \hyperlink{class_list_a36398f758397060735c8df9f7d11235d}{iter}
+\begin{DoxyCompactList}\small\item\em The public pointer to the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_list_a0e0849a1ca10791cb2788ec41af14c26}\label{class_list_a0e0849a1ca10791cb2788ec41af14c26}} 
+\index{List@{List}!back@{back}}
+\index{back@{back}!List@{List}}
+\subsubsection{\texorpdfstring{back()}{back()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{struct_node}{Node}$<$T$>$$\ast$ \hyperlink{class_list}{List}$<$ T $>$\+::back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return pointer to the last element. 
+
+\begin{DoxyReturn}{Returns}
+Node$<$\+T$>$$\ast$ Pointer to the last element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_ae296516a252e11963dbf963727ce429a}\label{class_list_ae296516a252e11963dbf963727ce429a}} 
+\index{List@{List}!clear@{clear}}
+\index{clear@{clear}!List@{List}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_list}{List}$<$ T $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clear every elements in the list. 
+
+Any references, pointers to the element will be invalidated. The {\ttfamily iter} from the list will also be invalidated. \mbox{\Hypertarget{class_list_a3737ca60365287ce663393d8c07d1a41}\label{class_list_a3737ca60365287ce663393d8c07d1a41}} 
+\index{List@{List}!empty@{empty}}
+\index{empty@{empty}!List@{List}}
+\subsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+bool \hyperlink{class_list}{List}$<$ T $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A check if the container is empty. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a0ea52d2f31cba662a5121ba724a1afc6}\label{class_list_a0ea52d2f31cba662a5121ba724a1afc6}} 
+\index{List@{List}!front@{front}}
+\index{front@{front}!List@{List}}
+\subsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{struct_node}{Node}$<$T$>$$\ast$ \hyperlink{class_list}{List}$<$ T $>$\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return pointer to the first element. 
+
+\begin{DoxyReturn}{Returns}
+Node$<$\+T$>$$\ast$ Pointer to the first element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_af583e46c2dad89c3f29be38a52dd27bc}\label{class_list_af583e46c2dad89c3f29be38a52dd27bc}} 
+\index{List@{List}!insert@{insert}}
+\index{insert@{insert}!List@{List}}
+\subsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_list}{List}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$}]{pos,  }\item[{T const \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct and insert an element before pos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The pointer to an element to insert before. nullptr if insert at the back. \\
+\hline
+{\em data} & The data to construct. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_list_ac7fcefb285d5b4991be548342f9b86e9}\label{class_list_ac7fcefb285d5b4991be548342f9b86e9}} 
+\index{List@{List}!insert@{insert}}
+\index{insert@{insert}!List@{List}}
+\subsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_list}{List}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$}]{pos,  }\item[{\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Insert an element before pos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The pointer to an element to insert before. nullptr if insert at the back. \\
+\hline
+{\em element} & The pointer to the element to insert. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_list_a5bfb723e873c6af1e03b085a24ad62f4}\label{class_list_a5bfb723e873c6af1e03b085a24ad62f4}} 
+\index{List@{List}!moveto@{moveto}}
+\index{moveto@{moveto}!List@{List}}
+\subsubsection{\texorpdfstring{moveto()}{moveto()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_list}{List}$<$ T $>$\+::moveto (\begin{DoxyParamCaption}\item[{\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$}]{element,  }\item[{\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Move an element to a destination. \hyperlink{struct_node}{Node} that it insert B\+E\+F\+O\+RE the pos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & Node$<$\+T$>$$\ast$ Pointer to the element you want to insert. \\
+\hline
+{\em pos} & Node$<$\+T$>$$\ast$ Pointer to the location you want to insert.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em If} & element is pos-\/$>$prev, the method do nothing. \\
+\hline
+{\em If} & element is not belong to the list, the behavior is undefined. \\
+\hline
+{\em If} & element is nullptr, the behavior is undefined. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_list_aca64c15e326dd7515499310bc9f2efb0}\label{class_list_aca64c15e326dd7515499310bc9f2efb0}} 
+\index{List@{List}!pop\+\_\+back@{pop\+\_\+back}}
+\index{pop\+\_\+back@{pop\+\_\+back}!List@{List}}
+\subsubsection{\texorpdfstring{pop\+\_\+back()}{pop\_back()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{struct_node}{Node}$<$T$>$$\ast$ \hyperlink{class_list}{List}$<$ T $>$\+::pop\+\_\+back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove the last element, return the pointer to it. 
+
+It is a heap allocated element, therefore, you can delete the pointer.
+
+\begin{DoxyReturn}{Returns}
+Node$<$\+T$>$$\ast$ The pointer to the removed \hyperlink{struct_node}{Node}. {\ttfamily nullptr} if the size is 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a3188f038a0b9c0a578bccdf7348f42b5}\label{class_list_a3188f038a0b9c0a578bccdf7348f42b5}} 
+\index{List@{List}!pop\+\_\+front@{pop\+\_\+front}}
+\index{pop\+\_\+front@{pop\+\_\+front}!List@{List}}
+\subsubsection{\texorpdfstring{pop\+\_\+front()}{pop\_front()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{struct_node}{Node}$<$T$>$$\ast$ \hyperlink{class_list}{List}$<$ T $>$\+::pop\+\_\+front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove the first element, return the pointer to it. 
+
+\begin{DoxyReturn}{Returns}
+Node$<$\+T$>$$\ast$ The pointer to the removed \hyperlink{struct_node}{Node}. {\ttfamily nullptr} if the size is 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_afc370c46b52217d24992076d66e78c2e}\label{class_list_afc370c46b52217d24992076d66e78c2e}} 
+\index{List@{List}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!List@{List}}
+\subsubsection{\texorpdfstring{push\+\_\+back()}{push\_back()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_list}{List}$<$ T $>$\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{T const \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct and insert the element at the back. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to construct.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::bad\+\_\+alloc} & If there\textquotesingle{}s not enough allocated memory. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_list_a36d7022ab9a7fadeb45a5933e64e8bd8}\label{class_list_a36d7022ab9a7fadeb45a5933e64e8bd8}} 
+\index{List@{List}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!List@{List}}
+\subsubsection{\texorpdfstring{push\+\_\+back()}{push\_back()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_list}{List}$<$ T $>$\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Insert the element at the back. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & The pointer to the element to insert. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_list_aeb009afd4f0f626603455d5ee9e3dfc3}\label{class_list_aeb009afd4f0f626603455d5ee9e3dfc3}} 
+\index{List@{List}!push\+\_\+front@{push\+\_\+front}}
+\index{push\+\_\+front@{push\+\_\+front}!List@{List}}
+\subsubsection{\texorpdfstring{push\+\_\+front()}{push\_front()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{class_list}{List}$<$ T $>$\+::push\+\_\+front (\begin{DoxyParamCaption}\item[{\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Insert the element at the front. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & The pointer to the element to insert. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_list_ad908ab5cf19370fcdf61cf1927e5e8f5}\label{class_list_ad908ab5cf19370fcdf61cf1927e5e8f5}} 
+\index{List@{List}!size@{size}}
+\index{size@{size}!List@{List}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+unsigned int \hyperlink{class_list}{List}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the size of the list. 
+
+\begin{DoxyReturn}{Returns}
+unsigned int The size of the list. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_list_a36398f758397060735c8df9f7d11235d}\label{class_list_a36398f758397060735c8df9f7d11235d}} 
+\index{List@{List}!iter@{iter}}
+\index{iter@{iter}!List@{List}}
+\subsubsection{\texorpdfstring{iter}{iter}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{struct_node}{Node}$<$T$>$$\ast$ \hyperlink{class_list}{List}$<$ T $>$\+::iter}
+
+
+
+The public pointer to the list. 
+
+This pointer is recommended to point to the head at all time. It can be used to modify directly any data in the list. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/list.\+h\end{DoxyCompactItemize}

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['insert',['insert',['../classList.html#af583e46c2dad89c3f29be38a52dd27bc',1,'List::insert(Node&lt; T &gt; *pos, T const &amp;data)'],['../classList.html#ac7fcefb285d5b4991be548342f9b86e9',1,'List::insert(Node&lt; T &gt; *pos, Node&lt; T &gt; *element)']]]
+  ['card',['Card',['../class_card.html#ab1406a01ecfea3110f8e6188e11c4863',1,'Card::Card(unsigned short int num, unsigned short int suit)'],['../class_card.html#a783f5854cbe8c183ee3d4414c01472c0',1,'Card::Card()']]],
+  ['clear',['clear',['../class_list.html#ae296516a252e11963dbf963727ce429a',1,'List']]]
 ];

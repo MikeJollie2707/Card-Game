@@ -1,0 +1,29 @@
+\hypertarget{struct_node}{}\section{Node$<$ T $>$ Struct Template Reference}
+\label{struct_node}\index{Node$<$ T $>$@{Node$<$ T $>$}}
+
+
+Collaboration diagram for Node$<$ T $>$\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_node_a2eb455834936e6d90875257ff01adf1a}\label{struct_node_a2eb455834936e6d90875257ff01adf1a}} 
+{\bfseries Node} (T const \&data)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_node_ac450c71a8677a38d306361f9ced518d3}\label{struct_node_ac450c71a8677a38d306361f9ced518d3}} 
+T {\bfseries data}
+\item 
+\mbox{\Hypertarget{struct_node_a8bedac90cd0aedd2847dd49f671d4d4a}\label{struct_node_a8bedac90cd0aedd2847dd49f671d4d4a}} 
+\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$ {\bfseries next}
+\item 
+\mbox{\Hypertarget{struct_node_ac953360c5f7ffae6ad13762189d34d9c}\label{struct_node_ac953360c5f7ffae6ad13762189d34d9c}} 
+\hyperlink{struct_node}{Node}$<$ T $>$ $\ast$ {\bfseries prev}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/list.\+h\end{DoxyCompactItemize}
