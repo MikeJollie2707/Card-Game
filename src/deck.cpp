@@ -34,7 +34,7 @@ void Deck::shuffle()
     }*/
     //deck.print();
 
-    
+    deck.print();
     int count = 0;
     Node<Card>* start = deck.front();
     Node<Card>* end = deck.back();
@@ -42,12 +42,13 @@ void Deck::shuffle()
     {
         int decision = rand() % 2;
         if (decision)
-            deck.swap(*start, *end);
+            deck.swap2(*start, *end);
         
         start = start->next;
         end = end->prev;
         count++;
     }
+    deck.print();
 
     count = 0;
     start = deck.front();
@@ -59,7 +60,7 @@ void Deck::shuffle()
     {
         int decision = rand() % 3;
         if (decision)
-            deck.swap(*start, *end);
+            deck.swap2(*start, *end);
         
         start = start->next;
         end = end->next;

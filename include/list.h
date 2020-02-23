@@ -29,7 +29,13 @@ private:
     Node<T>* tail;
     unsigned int len;
 public:
-    // A pointer used to iterate.
+    /**
+     * @brief The public pointer to the list.
+     * 
+     * This pointer is recommended to point to the head at all time.
+     * It can be used to modify directly any data in the list.
+     * 
+     */
     Node<T>* iter;
 
     List() { head = nullptr; tail = nullptr; iter = nullptr; len = 0; }
@@ -37,14 +43,39 @@ public:
     {
         clear();
     }
-    // Return pointer to the first element.
+    /**
+     * @brief Return pointer to the first element.
+     * 
+     * @return Node<T>* Pointer to the first element.
+     */
     Node<T>* front() { return head; }
-    // Return pointer to the last element.
+    /**
+     * @brief Return pointer to the last element.
+     * 
+     * @return Node<T>* Pointer to the last element.
+     */
     Node<T>* back() { return tail; }
 
+    /**
+     * @brief A check if the container is empty.
+     * 
+     * @return bool
+     */
     bool empty() { return (len == 0); }
+    /**
+     * @brief Return the size of the list.
+     * 
+     * @return unsigned int The size of the list.
+     */
     unsigned int size() { return len; }
 
+    /**
+     * @brief Construct and insert the element at the back.
+     * 
+     * @param data The data to construct.
+     * 
+     * @exception std::bad_alloc If there's not enough allocated memory.
+     */
     void push_back(T const& data)
     {
         Node<T>* element = new Node<T>(data);
@@ -61,6 +92,11 @@ public:
         }
         len++;
     }
+    /**
+     * @brief Insert the element at the back.
+     * 
+     * @param element The pointer to the element to insert.
+     */
     void push_back(Node<T>* element)
     {
         if (len > 0)
@@ -92,6 +128,11 @@ public:
         }
         len++;
     }
+    /**
+     * @brief Insert the element at the front.
+     * 
+     * @param element The pointer to the element to insert.
+     */
     void push_front(Node<T>* element)
     {
         if (len == 0)
@@ -110,7 +151,9 @@ public:
     /**
      * @brief Remove the last element, return the pointer to it.
      * 
-     * @return Node<T>* The pointer to the removed Node. nullptr if the size is 0.
+     * It is a heap allocated element, therefore, you can delete the pointer.
+     * 
+     * @return Node<T>* The pointer to the removed Node. `nullptr` if the size is 0.
      */
     Node<T>* pop_back()
     {
@@ -129,7 +172,7 @@ public:
     /**
      * @brief Remove the first element, return the pointer to it.
      * 
-     * @return Node<T>* The pointer to the removed Node. nullptr if the size is 0.
+     * @return Node<T>* The pointer to the removed Node. `nullptr` if the size is 0.
      */
     Node<T>* pop_front()
     {
@@ -148,8 +191,8 @@ public:
     /**
      * @brief Construct and insert an element before pos.
      * 
-     * @param pos Node<T>* The pointer to an element to insert before. nullptr if insert at the back.
-     * @param data const T& The data to construct.
+     * @param pos The pointer to an element to insert before. nullptr if insert at the back.
+     * @param data The data to construct.
      */
     void insert(Node<T>* pos, T const& data)
     {
@@ -168,8 +211,8 @@ public:
     /**
      * @brief Insert an element before pos.
      * 
-     * @param pos Node<T>* The pointer to an element to insert before. nullptr if insert at the back.
-     * @param element Node<T>* The pointer to the element to insert.
+     * @param pos The pointer to an element to insert before. nullptr if insert at the back.
+     * @param element The pointer to the element to insert.
      */
     void insert(Node<T>* pos, Node<T>* element)
     {
@@ -203,18 +246,18 @@ public:
         }
     }
     /**
-     * @brief Move an element to a destination.
+     * @brief Move an element to a destination. Node that it insert BEFORE the pos.
      * 
      * @param element Node<T>* Pointer to the element you want to insert.
      * @param pos Node<T>* Pointer to the location you want to insert.
      * 
-     * @exception If element is pos->prev or size < 2, the method do nothing.
+     * @exception If element is pos->prev, the method do nothing.
      * @exception If element is not belong to the list, the behavior is undefined.
      * @exception If element is nullptr, the behavior is undefined.
      */
     void moveto(Node<T>* element, Node<T>* pos)
     {
-        if (element == pos->prev || len < 2) return;
+        if (element == pos->prev) return;
         /*if (element->next == nullptr && element->prev == nullptr)
         {
             std::cout << "Use 'insert', 'push_back' or 'push_front' instead." << std::endl;
@@ -227,6 +270,7 @@ public:
                 element->next->prev = element->prev;
             else
                 tail = element->prev;
+            
             element->prev = nullptr;
             element->next = head;
             head->prev = element;
@@ -239,6 +283,7 @@ public:
                 element->prev->next = element->next;
             else
                 head = element->next;
+            
             element->next = nullptr;
             element->prev = tail;
             tail->next = element;
@@ -263,6 +308,13 @@ public:
         }
         
     }
+    /**
+     * @brief Clear every elements in the list.
+     * 
+     * Any references, pointers to the element will be invalidated.
+     * The `iter` from the list will also be invalidated.
+     * 
+     */
     void clear()
     {
         iter = head;
@@ -288,6 +340,23 @@ public:
             count++;
         }
         return *iter;
+    }
+    void swap2(Node<T>& first, Node<T>& second)
+    {
+        if (len <= 1) return;
+        if (len == 2) moveto(&second, &first);
+        else
+        {
+            Node<T>* temp = first.next;
+            print();
+            std::cout << "First: " << &first << std::endl;
+            std::cout << "Second: " << &second << std::endl;
+            moveto(&first, second.next);
+            print();
+            moveto(&second, temp);
+            exit(EXIT_FAILURE);
+        }
+        
     }
     void swap(Node<T>& first, Node<T>& second)
     {
@@ -402,7 +471,7 @@ public:
                 // Set the first node + second node point to null
                 first.next = nullptr;
                 second.prev = nullptr;
-                
+
                 head = &second;
                 tail = &first;
             }
@@ -423,25 +492,11 @@ public:
                 second.prev = nullptr;
                 head = &second;
             }
-            else if (tail == &first && head != &second)
+            else if (first.next == &second && tail != &second)
             {
-                // Do the opposite as above
-                first.next = second.next;
-
+                // Point nearby nodes to correct node
                 first.prev->next = &second;
-
-                second.prev->next = &first;
                 second.next->prev = &first;
-
-                Node<T>* temp = first.prev;
-                first.prev = second.prev;
-                second.prev = temp;
-
-                second.next = nullptr;
-                tail = &second;
-            }
-            else if (first.next = &second && tail != &second)
-            {
                 // Set the next and prev to correct next prev node
                 first.next = second.next;
                 second.prev = first.prev;
@@ -451,6 +506,7 @@ public:
             }
             else if (head != &first && tail != &second)
             {
+                // This is order-independent
                 first.next->prev = &second;
                 first.prev->next = &second;
 
@@ -466,6 +522,49 @@ public:
                 second.prev = temp;
             }
 
+            // Let's start assuming second is before first
+            else if (head == &second && tail == &first)
+            {
+                // Set the previous nodes point to correct node
+                second.next->prev = &first;
+                first.prev->next = &second;
+                // Set the nodes point to correct nodes
+                second.prev = first.prev;
+                first.next = second.next;
+                // Set the first node + second node point to null
+                second.next = nullptr;
+                first.prev = nullptr;
+                
+                head = &first;
+                tail = &second;
+            }
+            else if (tail == &first && head != &second)
+            {
+                first.next = second.next;
+
+                first.prev->next = &second;
+
+                second.prev->next = &first;
+                second.next->prev = &first;
+
+                Node<T>* temp = first.prev;
+                first.prev = second.prev;
+                second.prev = temp;
+
+                second.next = nullptr;
+                tail = &second;
+            }
+            else if (second.next == &first && tail != &first)
+            {
+                second.prev->next = &first;
+                first.next->prev = &second;
+
+                second.next = first.next;
+                first.prev = second.prev;
+
+                second.prev = &first;
+                first.next = &second;
+            }
         }
         
     }
