@@ -5,23 +5,24 @@ int main()
 {
     Deck deck;
     deck.shuffle();
+
     
     Player player;
-    int times = 6;
+    int times = 13;
     std::cout << "Card drown: " << std::endl;
     for (int i = 0; i < times; i++)
     {
-        Node<Card>* card = deck.drawtCard();
+        Node<Card>* card = deck.drawCard();
         std::cout << card->data.getNumber() << " " << card->data.getSuit() << " " << card->data.getValue();
         std::cout << std::endl;
-        player.treceiveCard(card);
+        player.receiveCard(card);
     }
     //player.print();
     std::cout << "Retrieving cards..." << std::endl;
     for (int i = 0; i < times; i++)
     {
         player.setIndex(i);
-        player.tselectCard();
+        player.selectCard();
         //player.print();
     }
     List<Card*> cards = player.tplayCard();

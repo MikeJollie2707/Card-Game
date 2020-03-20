@@ -13,13 +13,13 @@ class Card
 private:
     /**
      * @brief The number of the card.
-     *        In standard card, this should range from 1 to 13, with 1 as A, 11 as J, 12 as Q and 13 as K.
+     * In standard card, this should range from 1 to 13, with 1 as A, 11 as J, 12 as Q and 13 as K.
      */
     unsigned short int num = 0;
     /**
      * @brief The suit of the card.
-     *        In standard card, this should range from 1 to 4. Recommend using spades, clubs, diamonds and hearts.
-     *        In UNO, this is the color of the card.
+     * In standard card, this should range from 1 to 4. Recommend using spades, clubs, diamonds and hearts.
+     * In UNO, this is the color of the card.
      */
     unsigned short int suit = 0;
     /**
@@ -50,7 +50,7 @@ public:
     Card(unsigned short int num, unsigned short int suit);
     /**
      * @brief Construct an unidentified card.
-     *        Use for placeholder when declaring vectors.
+     * Use for placeholder when declaring vectors.
      * 
      */
     Card() {}

@@ -6,6 +6,10 @@
 #include <iostream>
 
 template <typename T>
+/**
+ * @brief A representation of an element in the List.
+ * 
+ */
 struct Node
 {
     T data;
@@ -22,11 +26,29 @@ struct Node
 };
 
 template <typename T>
+/**
+ * @brief A representation of a double linked list.
+ * 
+ * This list is low-level, meaning you can do whatever with the list, and you'll face consequence for that.
+ * 
+ */
 class List
 {
 private:
+    /**
+     * @brief Pointer to the first element of the list.
+     * 
+     */
     Node<T>* head;
+    /**
+     * @brief Pointer to the last element of the list.
+     * 
+     */
     Node<T>* tail;
+    /**
+     * @brief The size of the list.
+     * 
+     */
     unsigned int len;
 public:
     /**
@@ -34,6 +56,9 @@ public:
      * 
      * This pointer is recommended to point to the head at all time.
      * It can be used to modify directly any data in the list.
+     * However, it is recommended to use `operator[]` to access the element in the list than this pointer.
+     * 
+     * This pointer should be used to traverse the list.
      * 
      */
     Node<T>* iter;
@@ -46,26 +71,38 @@ public:
     /**
      * @brief Return pointer to the first element.
      * 
-     * @return Node<T>* Pointer to the first element.
+     * @return __Node<T>*__ Pointer to the first element.
+     * 
+     * @see back()
+     * 
      */
     Node<T>* front() { return head; }
     /**
      * @brief Return pointer to the last element.
      * 
-     * @return Node<T>* Pointer to the last element.
+     * @return __Node<T>*__ Pointer to the last element.
+     * 
+     * @see front()
+     * 
      */
     Node<T>* back() { return tail; }
 
     /**
      * @brief A check if the container is empty.
      * 
-     * @return bool
+     * @return __bool__
+     * 
+     * @see size()
+     * 
      */
     bool empty() { return (len == 0); }
     /**
      * @brief Return the size of the list.
      * 
-     * @return unsigned int The size of the list.
+     * @return __unsigned int__ The size of the list.
+     * 
+     * @see back()
+     * 
      */
     unsigned int size() { return len; }
 
@@ -75,6 +112,11 @@ public:
      * @param data The data to construct.
      * 
      * @exception std::bad_alloc If there's not enough allocated memory.
+     * 
+     * @see push_back(Node<T>* element)
+     * @see push_front(T const& data)
+     * @see push_front(Node<T>* element)
+     * 
      */
     void push_back(T const& data)
     {
@@ -96,6 +138,11 @@ public:
      * @brief Insert the element at the back.
      * 
      * @param element The pointer to the element to insert.
+     * 
+     * @see push_back(T const& data)
+     * @see push_front(T const& data)
+     * @see push_front(Node<T>* element)
+     * 
      */
     void push_back(Node<T>* element)
     {
@@ -112,6 +159,18 @@ public:
         }
         len++;
     }
+    /**
+     * @brief Construct and insert the element at the front.
+     * 
+     * @param data The data to construct.
+     * 
+     * @exception std::bad_alloc If there's not enough allocated memory.
+     * 
+     * @see push_front(Node<T>* element)
+     * @see push_back(Node<T>* element)
+     * @see push_back(T const& data)
+     * 
+     */
     void push_front(T const& data)
     {
         Node<T>* element = new Node<T>(data);
@@ -132,6 +191,11 @@ public:
      * @brief Insert the element at the front.
      * 
      * @param element The pointer to the element to insert.
+     * 
+     * @see push_front(T const& data)
+     * @see push_back(Node<T>* element)
+     * @see push_back(T const& data)
+     * 
      */
     void push_front(Node<T>* element)
     {
@@ -151,9 +215,12 @@ public:
     /**
      * @brief Remove the last element, return the pointer to it.
      * 
-     * It is a heap allocated element, therefore, you can delete the pointer.
+     * It is a heap allocated element, therefore, you can delete the pointer if it's not longer used in a list.
      * 
-     * @return Node<T>* The pointer to the removed Node. `nullptr` if the size is 0.
+     * @return __Node<T>*__ The pointer to the removed Node. `nullptr` if the size is 0.
+     * 
+     * @see pop_front()
+     * 
      */
     Node<T>* pop_back()
     {
@@ -172,7 +239,12 @@ public:
     /**
      * @brief Remove the first element, return the pointer to it.
      * 
-     * @return Node<T>* The pointer to the removed Node. `nullptr` if the size is 0.
+     * It is a heap allocated element, therefore, you can delete the pointer if it's not longer used in a list.
+     * 
+     * @return __Node<T>*__ The pointer to the removed Node. `nullptr` if the size is 0.
+     * 
+     * @see pop_back()
+     * 
      */
     Node<T>* pop_front()
     {
@@ -191,10 +263,16 @@ public:
     /**
      * @brief Construct and insert an element before pos.
      * 
-     * @param pos The pointer to an element to insert before. nullptr if insert at the back.
      * @param data The data to construct.
+     * @param pos The pointer to an element to insert before, `nullptr` if insert at the back.
+     * 
+     * @exception std::bad_alloc If there's not enough memory to allocate.
+     * 
+     * @see insert(Node<T>* element, Node<T>* pos)
+     * @see remove(Node<T>* pos)
+     * 
      */
-    void insert(Node<T>* pos, T const& data)
+    void insert(T const& data, Node<T>* pos)
     {
         if (pos == nullptr) push_back(data);
         else if (pos == head) push_front(data);
@@ -211,10 +289,14 @@ public:
     /**
      * @brief Insert an element before pos.
      * 
-     * @param pos The pointer to an element to insert before. nullptr if insert at the back.
      * @param element The pointer to the element to insert.
+     * @param pos The pointer to an element to insert before, `nullptr` if insert at the back.
+     * 
+     * @see insert(T const& data, Node<T>* pos)
+     * @see remove(Note<T>* pos)
+     * 
      */
-    void insert(Node<T>* pos, Node<T>* element)
+    void insert(Node<T>* element, Node<T>* pos)
     {
         if (pos == head)
             push_front(element);
@@ -228,6 +310,17 @@ public:
             element->next = pos;
         }
     }
+    /**
+     * @brief Remove the element, return the pointer to it.
+     * 
+     * It is a heap allocated element, therefore, you can delete the pointer if it's not longer used in a list.
+     *
+     * @param pos The pointer to the element to remove. 
+     * @return __Node<T>*__ The pointer to the removed Node. `nullptr` if the size is 0.
+     * 
+     * @see insert(Node<T>* element, Node<T>* pos)
+     * 
+     */
     Node<T>* remove(Node<T>* pos)
     {
         if (pos == tail) 
@@ -246,23 +339,43 @@ public:
         }
     }
     /**
-     * @brief Move an element to a destination. Node that it insert BEFORE the pos.
+     * @brief Move an element to a destination. Note that it insert *before* the `pos`.
      * 
-     * @param element Node<T>* Pointer to the element you want to insert.
-     * @param pos Node<T>* Pointer to the location you want to insert.
+     * @param element Pointer to the element you want to insert.
+     * @param pos Pointer to the location you want to insert.
      * 
-     * @exception If element is pos->prev, the method do nothing.
-     * @exception If element is not belong to the list, the behavior is undefined.
-     * @exception If element is nullptr, the behavior is undefined.
+     * @note If element is not belong to the list, the behavior is *undefined*.
+     * @note If element is nullptr, the behavior is *undefined*.
+     * 
+     * @see swap(Node<T>& first, Node<T>& second)
+     * 
      */
     void moveto(Node<T>* element, Node<T>* pos)
     {
-        if (element == pos->prev) return;
-        /*if (element->next == nullptr && element->prev == nullptr)
+        if (pos != nullptr)
         {
-            std::cout << "Use 'insert', 'push_back' or 'push_front' instead." << std::endl;
-            return;
-        }*/
+            if (element == pos->prev) 
+                return;
+            if (element == pos->next)
+            {
+                if (pos != head)
+                    pos->prev->next = element;
+                else
+                    head = element;
+                
+                element->prev = pos->prev;
+                if (element != tail)
+                    element->next->prev = pos;
+                else
+                    tail = pos;
+                
+                pos->next = element->next;
+                element->next = pos;
+                pos->prev = element;
+
+                return;
+            }
+        }
         if (pos == head)
         {
             element->prev->next = element->next;
@@ -301,6 +414,11 @@ public:
                 element->prev->next = nullptr;
                 tail = element->prev;
             }
+            else 
+            {
+                element->prev->next = element->next;
+                element->next->prev = element->prev;
+            }
             element->next = pos;
             element->prev = pos->prev;
             pos->prev->next = element;
@@ -311,8 +429,8 @@ public:
     /**
      * @brief Clear every elements in the list.
      * 
-     * Any references, pointers to the element will be invalidated.
-     * The `iter` from the list will also be invalidated.
+     * Any references, pointers to the element will be *invalidated*.
+     * The `iter` from the list will also be *invalidated*.
      * 
      */
     void clear()
@@ -330,6 +448,17 @@ public:
         len = 0;
         delete iter;
     }
+    /**
+     * @brief Access the element at the position.
+     * 
+     * Treat this as the array accessing operator. It is a "safe" `iter` version of accessing element.
+     * 
+     * Please note that if the list is corrupted, this method will result in *undefined behavior*.
+     * 
+     * @param index The position of the element.
+     * @return __Node<T>&__ The reference to the element.
+     * 
+     */
     Node<T>& operator[](int const& index)
     {
         iter = head;
@@ -341,238 +470,56 @@ public:
         }
         return *iter;
     }
-    void swap2(Node<T>& first, Node<T>& second)
-    {
-        if (len <= 1) return;
-        if (len == 2) moveto(&second, &first);
-        else
-        {
-            Node<T>* temp = first.next;
-            print();
-            std::cout << "First: " << &first << std::endl;
-            std::cout << "Second: " << &second << std::endl;
-            moveto(&first, second.next);
-            print();
-            moveto(&second, temp);
-            exit(EXIT_FAILURE);
-        }
-        
-    }
+    /**
+     * @brief Swap the two elements.
+     * 
+     * Internally, this swap the pointers rather than the data itself. Therefore, it is highly unstable and a messed up means the list is corrupted.
+     * 
+     * This method is still in testing process.
+     * 
+     * @param first The element to swap.
+     * @param second The element to swap.
+     * 
+     * @see iswap(Node<T>& first, Node<T>& second)
+     * 
+     */
     void swap(Node<T>& first, Node<T>& second)
     {
         if (len <= 1) return;
-        if (len == 2)
+        if (first.next == &second)
+            moveto(&second, &first);
+        else if (second.next == &first)
+            moveto(&first, &second);
+        else
         {
-            iter = head;
-            head->prev = tail;    
-            head->next = nullptr;
-        
-            tail->prev = nullptr;
-            tail->next = head;
-
-            head = tail;
-            tail = iter;
-            iter = head;
+            Node<T>* temp = first.next;
+            moveto(&first, second.next);
+            moveto(&second, temp);
         }
-        else if (len > 2)
-        {
-            /*std::cout << "Pair: " << std::endl;
-            std::cout << "My address: " << &first << std::endl;
-            std::cout << first.prev << "|" << first.next << std::endl;
-            std::cout << "His address: " << &second << std::endl;
-            std::cout << second.prev << "|" << second.next << std::endl;*/
-            /*std::cout << "After swap: " << std::endl;
-            std::cout << "My address: " << &first << std::endl;
-            std::cout << first.prev << "|" << first.next << std::endl;
-            std::cout << "His address: " << &second << std::endl;
-            std::cout << second.prev << "|" << second.next << std::endl;*/
-            /*if (&first == head || &second == head)
-            {
-                if (&first == head && &second == tail)
-                {
-                    first.next->prev = &second;
-                    second.prev->next = &first;
-
-                    first.prev = second.prev;
-                    second.next = first.next;
-
-                    head = &second;
-                    tail = &first;
-                }
-                else if (&first == head && &second != tail)
-                {
-                    if (first.next != &second && first.prev != &second)
-                    {
-                        first.next->prev = &second;
-                        second.prev->next = &first;
-
-                        second.next->prev = &first;
-
-                        Node<T>* temp = first.next;
-                        first.next = second.next;
-                        second.next = temp;
-
-                        temp = first.prev;
-                        first.prev = second.prev;
-                        second.prev = temp;
-
-                        head = &second;
-                    }
-                }
-            }
-            else if (&first == tail || &second == tail)
-            {
-
-            }
-            else if (first.next == &second || first.prev == &second)
-            {
-
-            }
-            else
-            {
-                //std::cout << "Pair: " << std::endl;
-                //std::cout << "My address: " << &first << std::endl;
-                //std::cout << first.prev << "|" << first.next << std::endl;
-                //std::cout << "His address: " << &second << std::endl;
-                //std::cout << second.prev << "|" << second.next << std::endl;
-                first.prev->next = &second;
-                first.next->prev = &second;
-                second.prev->next = &first;
-                second.next->prev = &first;
-                
-                Node<T>* temp = first.next;
-                first.next = second.next;
-                second.next = temp;
-
-                temp = first.prev;
-                first.prev = second.prev;
-                second.prev = temp;
-
-                //std::cout << "After swap: " << std::endl;
-                //std::cout << "My address: " << &first << std::endl;
-                //std::cout << first.prev << "|" << first.next << std::endl;
-                //std::cout << "His address: " << &second << std::endl;
-                //std::cout << second.prev << "|" << second.next << std::endl;
-                /*T temp = first.data;
-                first.data = second.data;
-                second.data = temp;
-            }*/
-
-            // I'm assuming first is before second.
-
-            if (head == &first && tail == &second)
-            {
-                // Set the previous nodes point to correct node
-                first.next->prev = &second;
-                second.prev->next = &first;
-                // Set the nodes point to correct nodes
-                first.prev = second.prev;
-                second.next = first.next;
-                // Set the first node + second node point to null
-                first.next = nullptr;
-                second.prev = nullptr;
-
-                head = &second;
-                tail = &first;
-            }
-            else if (head == &first && tail != &second)
-            {
-                // Point the prev to the correct prev
-                first.prev = second.prev;
-                // Point the next to the corrent node
-                first.next->prev = &second;
-                // Point the next and prev to the correct node
-                second.next->prev = &first;
-                second.prev->next = &first;
-                // Switch the next pointers
-                Node<T>* temp = first.next;
-                first.next = second.next;
-                second.next = temp;
-                // Set the second as head
-                second.prev = nullptr;
-                head = &second;
-            }
-            else if (first.next == &second && tail != &second)
-            {
-                // Point nearby nodes to correct node
-                first.prev->next = &second;
-                second.next->prev = &first;
-                // Set the next and prev to correct next prev node
-                first.next = second.next;
-                second.prev = first.prev;
-                // Set the prev and next to correct node
-                first.prev = &second;
-                second.next = &first;
-            }
-            else if (head != &first && tail != &second)
-            {
-                // This is order-independent
-                first.next->prev = &second;
-                first.prev->next = &second;
-
-                second.next->prev = &first;
-                second.prev->next = &first;
-
-                Node<T>* temp = first.next;
-                first.next = second.next;
-                second.next = temp;
-
-                temp = first.prev;
-                first.prev = second.prev;
-                second.prev = temp;
-            }
-
-            // Let's start assuming second is before first
-            else if (head == &second && tail == &first)
-            {
-                // Set the previous nodes point to correct node
-                second.next->prev = &first;
-                first.prev->next = &second;
-                // Set the nodes point to correct nodes
-                second.prev = first.prev;
-                first.next = second.next;
-                // Set the first node + second node point to null
-                second.next = nullptr;
-                first.prev = nullptr;
-                
-                head = &first;
-                tail = &second;
-            }
-            else if (tail == &first && head != &second)
-            {
-                first.next = second.next;
-
-                first.prev->next = &second;
-
-                second.prev->next = &first;
-                second.next->prev = &first;
-
-                Node<T>* temp = first.prev;
-                first.prev = second.prev;
-                second.prev = temp;
-
-                second.next = nullptr;
-                tail = &second;
-            }
-            else if (second.next == &first && tail != &first)
-            {
-                second.prev->next = &first;
-                first.next->prev = &second;
-
-                second.next = first.next;
-                first.prev = second.prev;
-
-                second.prev = &first;
-                first.next = &second;
-            }
-        }
-        
+    }
+    /**
+     * @brief Swap the two elements.
+     * 
+     * Internally, this swap the data itself rather than the pointer. Therefore, it is recommended to use this in small data type only.
+     * 
+     * @param first The element to swap.
+     * @param second The element to swap.
+     * 
+     * @see swap(Node<T>& first, Node<T>& second)
+     * 
+     */
+    void iswap(Node<T>& first, Node<T>& second)
+    {
+        T temp = first.data;
+        first.data = second.data;
+        second.data = temp;
     }
     void print()
     {
         if (len == 0) return;
         iter = head;
         std::cout << "Size: " << len << std::endl;
+        int realsize = 0;
         while (iter->next != nullptr)
         {
             std::cout << "My address: " << iter << std::endl;
@@ -581,6 +528,7 @@ public:
             std::cout << "|" << iter->next << "|";
             std::cout << std::endl;
             iter = iter->next;
+            realsize++;
         }
         std::cout << "My address: " << iter << std::endl;
         std::cout << "|" << iter->prev << "|";
@@ -589,6 +537,7 @@ public:
         std::cout << std::endl;
         std::cout << "Current head: " << head << std::endl;
         std::cout << "Current tail: " << tail << std::endl;
+        std::cout << "Real Size: " << ++realsize << std::endl;
         iter = head;
     }
 };

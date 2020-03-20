@@ -19,37 +19,27 @@ Deck::~Deck()
 void Deck::shuffle()
 {
     srand(time(NULL));
-    /*int start = 0;
-    int mobile = 0;
-    //deck.print();
-    while (start < 52)
-    {
-        do
-            mobile = rand() % 52;
-        while (mobile == start);
 
-        std::cout << "Swap at " << start << " " << mobile << std::endl;
-        deck.swap(deck[start], deck[mobile]);
-        start++;
-    }*/
-    //deck.print();
-
-    deck.print();
+    // Shuffle 1...
     int count = 0;
     Node<Card>* start = deck.front();
     Node<Card>* end = deck.back();
     while (count < deck.size() && start != nullptr && end != nullptr)
     {
-        int decision = rand() % 2;
-        if (decision)
-            deck.swap2(*start, *end);
+        int decision = rand() % 5;
+        if (decision > 0)
+            deck.swap(*start, *end);
+        
+        auto temp = start;
+        start = end;
+        end = temp;
         
         start = start->next;
         end = end->prev;
         count++;
     }
-    deck.print();
 
+    // Shuffle 2...
     count = 0;
     start = deck.front();
     end = deck.front();
@@ -58,13 +48,33 @@ void Deck::shuffle()
     
     while (end != nullptr)
     {
-        int decision = rand() % 3;
-        if (decision)
-            deck.swap2(*start, *end);
+        int decision = rand() % 5;
+        if (decision > 0)
+            deck.swap(*start, *end);
+        
+        auto temp = start;
+        start = end;
+        end = temp;
         
         start = start->next;
         end = end->next;
         count++;
+    }
+
+    // Shuffle 3...
+    start = deck.front();
+    int decision = 0;
+    while (start != nullptr)
+    {
+        decision = rand() % 52;
+        while (start == &deck[decision])
+            decision = rand() % 52;
+        
+        auto temp = &deck[decision];
+        deck.swap(*start, deck[decision]);
+
+        start = temp;
+        start = start->next;
     }
 }
 void Deck::reset()

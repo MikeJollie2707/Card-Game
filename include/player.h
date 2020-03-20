@@ -9,10 +9,8 @@ class Player
 {
 private:
     std::string const   name;
-    List<Card*> thand;
-    std::vector<Card**> hand;
-    List<Card*> tselected_cards;
-    std::vector<Card**> selected_cards; // This is for playing multiple cards such as 3-4-5-6-7-...
+    List<Card*> hand;
+    List<Card*> selected_cards; // This is for playing multiple cards such as 3-4-5-6-7-...
     unsigned short int  current_index = 0; // This is for current observe card.
 
     void                sortCard();
@@ -20,17 +18,14 @@ public:
     void                setIndex(unsigned short int index) { current_index = index; }
 
     void                drawFromDeck(Deck& deck);
-    void treceiveCard(Node<Card>* card);
-    void                receiveCard(Card** card);
+    void                receiveCard(Node<Card>* card);
 
-    std::vector<Card**> playCard() { return selected_cards; }
-    List<Card*> tplayCard() { return tselected_cards; }
-    void                selectCard() { selected_cards.push_back(hand[current_index]); }
-    void tselectCard() 
+    List<Card*> tplayCard() { return selected_cards; }
+    void selectCard() 
     {
-        tselected_cards.push_back(thand.pop_front()); 
+        selected_cards.push_back(hand.pop_front()); 
     }
-    void print() { thand.print(); }
+    void print() { hand.print(); }
 
     Player(std::string name = "Player");
     ~Player();
