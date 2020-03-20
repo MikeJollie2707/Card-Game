@@ -22,14 +22,6 @@ stdexcept
 iostream
 -
 
-../include/player.h
-deck.h
-../include/deck.h
-string
--
-vector
--
-
 /home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.cpp
 deck.h
 /home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/deck.h
@@ -37,18 +29,6 @@ cstdlib
 -
 ctime
 -
-iostream
--
-
-/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.cpp
-player.h
-/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.h
-iostream
--
-
-/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/test.cpp
-player.h
-/home/mikengo/Documents/Coding/C(++)/C++/Projects/CardTemplate/src/player.h
 iostream
 -
 
